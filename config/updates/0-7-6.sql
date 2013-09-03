@@ -1,0 +1,2 @@
+ALTER TABLE `{database.name}`.`wc_widgets` ADD hidden ENUM('0','1') CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL DEFAULT '0';
+ALTER TABLE `{database.name}`.`wc_users` CHANGE mail email VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL;

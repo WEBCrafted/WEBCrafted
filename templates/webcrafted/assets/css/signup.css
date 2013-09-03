@@ -1,0 +1,248 @@
+/*
+ * signup.css
+ * ----------------------------------
+ *
+ * Par WEBCrafted
+ * Copyright (C) 2013, WEBCrafted.
+ * ----------------------------------
+ *
+ * SOMMAIRE
+ * ----------------------------------
+ *
+ * I. Reset global
+ *
+ * II. Classes globales
+ *    	A. Body
+ *		B. Notifications
+ *		C. Boutons
+ *
+ * III. Section principale
+ * 		A. Contenu secondaire
+ *			1. Logo
+ *			2. Boîtes et textes
+ *			3. Formulaires et champs
+ */
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-regular.ttf') format('truetype'),
+		 url('../fonts/opensans-regular.svg#OpenSansRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-light.ttf') format('truetype'),
+		 url('../fonts/opensans-light.svg#OpenSansLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Signika';
+	src: url('../fonts/signika-regular.ttf') format('truetype'),
+		 url('../fonts/signika-regular.svg#SignikaRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Signika';
+	src: url('../fonts/signika-light.ttf') format('truetype'),
+		 url('../fonts/signika-light.svg#SignikaLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../fonts/bebasneue-regular.ttf') format('truetype'),
+		 url('../fonts/bebasneue-regular.svg#BebasNeue') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*================================================================================*/
+/*= I. Reset global =*/
+/*================================================================================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark,
+audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table {	border-collapse: collapse; border-spacing: 0; }
+input, select, textarea { outline: none; }
+
+/*================================================================================*/
+/*= II. Classes globales =*/
+/*================================================================================*/
+	/*============================================================================*/
+	/*= A. Body =*/
+	/*============================================================================*/
+	html, body {
+		height: 100%;
+		margin: 0;
+		padding: 0;
+		background: #CDDEEA repeat;
+		background: -moz-linear-gradient(top, #CDDEEA 1%, #9BBAD0 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(1%, #CDDEEA), color-stop(100%, #9BBAD0));
+		background: -webkit-linear-gradient(top, #CDDEEA 1%, #9BBAD0 100%);
+		background: -o-linear-gradient(top, #CDDEEA 1%, #9BBAD0 100%);
+		background: -ms-linear-gradient(top, #CDDEEA 1%, #9BBAD0 100%);
+		background: linear-gradient(to bottom, #CDDEEA 1%, #9BBAD0 100%);
+	}
+
+	/*============================================================================*/
+	/*= B. Notifications =*/
+	/*============================================================================*/
+	.alert {
+		width: 667px;
+		margin: 0 auto;
+		margin-bottom: 20px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.alert p {
+		line-height: 50px;
+		padding-left: 10px;
+		font-family: 'Open Sans';
+		font-weight: normal;
+		font-size: 16px;
+	}
+	.alert-error {
+		background-color: #E3C1C1;
+		box-shadow: inset 0 4px #F0D5D5, inset 0 0 10px #ECD1D1;
+		border: solid 1px #CBA5A5;
+	}
+	.alert-error p {
+		color: #856A6A;
+	}
+	.alert-success {
+		background-color: #D9E3C1;
+		box-shadow: inset 0 4px #E8F0D6, inset 0 0 10px #DDE6C7;
+		border: solid 1px #A3AA93;
+	}
+	.alert-success p {
+		color: #949C82;
+	}
+
+	/*============================================================================*/
+	/*= C. Boutons =*/
+	/*============================================================================*/
+	.btn {
+		width: 145px;
+		height: 38px;
+		font-family: 'Bebas Neue';
+		font-weight: normal;
+		font-size: 20px;
+		border: none;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+	a.btn {
+		height: auto;
+		display: inline-block;
+		text-align: center;
+		padding-top: 8px;
+		padding-bottom: 4px;
+	}
+	.btn-success {
+		background: #9DC167;
+		background: -moz-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9DC167), color-stop(100%, #84B647));
+		background: -webkit-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: -o-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: -ms-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: linear-gradient(to bottom, #9DC167 0%, #84B647 100%);
+		border-bottom: solid 3px #6D9B39;
+		color: #43641E;
+	}
+
+/*================================================================================*/
+/*= III. Section principale =*/
+/*================================================================================*/
+section#content .inner {
+	/*width: 1024px;*/
+}
+	/*============================================================================*/
+	/*= A. Contenu secondaire =*/
+	/*============================================================================*/
+		/*========================================================================*/
+		/*= 1. Logo =*/
+		/*========================================================================*/
+		section#content .inner img#logo {
+			display: block;
+			margin: 0 auto;
+		}
+
+		/*========================================================================*/
+		/*= 2. Boîtes et textes =*/
+		/*========================================================================*/
+		section#content .inner section#blocks-container div.block {
+			position: relative;
+			margin: 0 auto;
+			width: 667px;
+			height: 426px;
+			background: url('../images/signup.png') no-repeat;
+		}
+		section#content .inner section#blocks-container div.block header h1 {
+			padding: 18px 15px;
+			font-family: Signika;
+			font-size: 30px;
+			font-weight: 300;
+			color: #FFF;
+		}
+		section#content .inner section#blocks-container div.block div.block-content {
+			margin: 30px 0 0 50px;
+		}
+
+		/*========================================================================*/
+		/*= 3. Formulaires et champs =*/
+		/*========================================================================*/
+		section#content .inner section#blocks-container div.block div.block-content form#signup fieldset {
+			padding-bottom: 7px;
+			height: 60px;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#signup fieldset input {
+			width: 220px;
+			height: 20px;
+			border-radius: 3px;
+			border: none;
+			padding-left: 5px;
+			margin-top: 12px;
+			margin-right: 35px;
+			float: right;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#signup fieldset .inner {
+			width: 334px;
+			float: left;
+			font-family: Signika;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#signup fieldset .inner h1 {
+			font-weight: 300;
+			font-size: 20px;
+			color: #D3D3D3;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#signup fieldset .inner h3 {
+			font-size: 14px;
+			font-weight: 100;
+			color: #929292;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#signup input.btn {
+			position: absolute;
+			right: 79px;
+			bottom: 20px;
+		}

@@ -1,0 +1,354 @@
+/*
+ * style.css
+ * ----------------------------------
+ *
+ * Par WEBCrafted
+ * Copyright (C) 2013, WEBCrafted.
+ * ----------------------------------
+ *
+ * SOMMAIRE
+ * ----------------------------------
+ *
+ * I. Reset global
+ *
+ * II. Classes globales
+ *		A. Body
+ *		B. Notifications
+ *		C. Boutons
+ *		D. Classes-outils
+ *
+ * III. Header
+ *  	A. Topbar
+ *		B. Description
+ *  	C. Logo
+ *
+ * IV. Section principale
+ * 		A. Etapes
+ * 		B. Contenu secondaire
+ *			1. Boîtes et textes
+ *			2. Formulaires et champs
+ */
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-regular.ttf') format('truetype'),
+		 url('../fonts/opensans-regular.svg#OpenSansRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-light.ttf') format('truetype'),
+		 url('../fonts/opensans-light.svg#OpenSansLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Signika';
+	src: url('../fonts/signika-regular.ttf') format('truetype'),
+		 url('../fonts/signika-regular.svg#SignikaRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Signika';
+	src: url('../fonts/signika-light.ttf') format('truetype'),
+		 url('../fonts/signika-light.svg#SignikaLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../fonts/bebasneue-regular.ttf') format('truetype'),
+		 url('../fonts/bebasneue-regular.svg#BebasNeue') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*================================================================================*/
+/*= I. Reset global =*/
+/*================================================================================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark,
+audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ''; content: none; }
+table {	border-collapse: collapse; border-spacing: 0; }
+input, select, textarea { outline: none; }
+
+/*================================================================================*/
+/*= II. Classes globales =*/
+/*================================================================================*/
+	/*============================================================================*/
+	/*= A. Body =*/
+	/*============================================================================*/
+	body {
+		margin: 0;
+		padding: 0;
+	}
+	.inner {
+		width: 100%;
+		margin: 0 auto;
+	}
+
+	/*============================================================================*/
+	/*= B. Notifications =*/
+	/*============================================================================*/
+	.alert {
+		margin-bottom: 20px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.alert p {
+		line-height: 50px;
+		padding-left: 10px;
+		font-family: 'Open Sans';
+		font-weight: normal;
+		font-size: 16px;
+	}
+	.alert-error {
+		background-color: #E3C1C1;
+		box-shadow: inset 0 4px #F0D5D5, inset 0 0 10px #ECD1D1;
+		border: solid 1px #CBA5A5;
+	}
+	.alert-error p {
+		color: #856A6A;
+	}
+	.alert-success {
+		background-color: #D9E3C1;
+		box-shadow: inset 0 4px #E8F0D6, inset 0 0 10px #DDE6C7;
+		border: solid 1px #A3AA93;
+	}
+	.alert-success p {
+		color: #949C82;
+	}
+
+	/*============================================================================*/
+	/*= C. Boutons =*/
+	/*============================================================================*/
+	.btn {
+		width: 145px;
+		height: 38px;
+		font-family: 'Bebas Neue';
+		font-weight: normal;
+		font-size: 20px;
+		border: none;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+	a.btn {
+		height: auto;
+		display: inline-block;
+		text-align: center;
+		padding-top: 8px;
+		padding-bottom: 4px;
+	}
+	.btn-success {
+		background: #9DC167;
+		background: -moz-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9DC167), color-stop(100%, #84B647));
+		background: -webkit-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: -o-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: -ms-linear-gradient(top, #9DC167 0%, #84B647 100%);
+		background: linear-gradient(to bottom, #9DC167 0%, #84B647 100%);
+		border-bottom: solid 3px #6D9B39;
+		color: #43641E;
+	}
+	.btn-error {
+		background: #A73030;
+		background: -moz-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #A73030), color-stop(100%, #D65C5C));
+		background: -webkit-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: -o-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: -ms-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: linear-gradient(to bottom, #A73030 0%, #D65C5C 100%);
+		border-bottom: solid 3px #932E2E;
+		color: #731F1F;
+	}
+
+	/*============================================================================*/
+	/*= D. Classes-outils =*/
+	/*============================================================================*/
+	.clear {
+		clear: both;
+	}
+
+/*================================================================================*/
+/*= III. Header =*/
+/*================================================================================*/
+header#header {
+	height: 190px;
+}
+	/*============================================================================*/
+	/*= A. Topbar =*/
+	/*============================================================================*/
+	header#header .inner section#topbar {
+		height: 38px;
+		background: #C0DAF1 repeat;
+		background: -moz-linear-gradient(top, #B0D1EF 0%, #C0DAF1 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #B0D1EF), color-stop(100%, #C0DAF1));
+		background: -webkit-linear-gradient(top, #B0D1EF 0%, #C0DAF1 100%);
+		background: -o-linear-gradient(top, #B0D1EF 0%, #C0DAF1 100%);
+		background: -ms-linear-gradient(top, #B0D1EF 0%, #C0DAF1 100%);
+		background: linear-gradient(to bottom, #B0D1EF 0%, #C0DAF1 100%);
+		border-bottom: solid 6px #A2BED6;
+	}
+	header#header .inner section#topbar p {
+		line-height: 38px;
+		text-align: center;
+		font-family: Signika;
+		font-size: 18px;
+		color: #FFF
+	}
+
+	/*============================================================================*/
+	/*= B. Description =*/
+	/*============================================================================*/
+	header#header .inner section#description {
+		width: 1024px;
+		height: 109px;
+		margin: 20px auto;
+	}
+	header#header .inner section#description h1 {
+		padding-top: 18px;
+		font-family: 'Open Sans';
+		font-weight: 100;
+		font-size: 40px;
+		color: #595959;
+	}
+	header#header .inner section#description h2 {
+		font-family: 'Open Sans';
+		font-weight: 100;
+		font-size: 18px;
+		color: #AAA6A6;
+	}
+
+	/*============================================================================*/
+	/*= C. Logo =*/
+	/*============================================================================*/
+	header#header .inner section#description img#logo {
+		width: 195px;
+		height: 109px;
+		float: left;
+	}
+
+/*================================================================================*/
+/*= IV. Section principale =*/
+/*================================================================================*/
+section#content .inner {
+	width: 1024px;
+}
+	/*============================================================================*/
+	/*= A. Etapes =*/
+	/*============================================================================*/
+	section#content .inner section#steps {
+		margin: 50px 0 0 30px;
+		float: left;
+	}
+	section#content .inner section#steps ul {
+		margin: 0;
+		padding: 0;
+	}
+	section#content .inner section#steps ul li {
+		padding-bottom: 2px;
+		font-family: 'Open Sans';
+		font-size: 20px;
+		font-weight: 100;
+		color: #C2BFBF;
+	}
+	section#content .inner section#steps ul li.current {
+		font-size: 32px;
+		color: #595959;
+	}
+
+	/*============================================================================*/
+	/*= B. Contenu secondaire =*/
+	/*============================================================================*/
+	section#content .inner section#blocks-container {
+		margin: 50px 100px 0 0;
+		float: right;
+	}
+		/*========================================================================*/
+		/*= 1. Boîtes et textes =*/
+		/*========================================================================*/
+		section#content .inner section#blocks-container div.block {
+			position: relative;
+			width: 667px;
+			height: 426px;
+			background: url('../images/block.png') no-repeat;
+		}
+		section#content .inner section#blocks-container div.block-large {
+			height: 510px;
+			background: url('../images/block-large.png') no-repeat;
+		}
+		section#content .inner section#blocks-container div.block-big {
+			height: 560px;
+			background: url('../images/block-big.png') no-repeat;
+		}
+		section#content .inner section#blocks-container div.block header h1 {
+			padding: 18px 15px;
+			font-family: Signika;
+			font-size: 30px;
+			font-weight: 300;
+			color: #FFF;
+		}
+		section#content .inner section#blocks-container div.block div.block-content {
+			margin: 30px 0 0 50px;
+		}
+		section#content .inner section#blocks-container div.block div.block-content div.alert {
+			margin-right: 35px;
+		}
+
+		/*========================================================================*/
+		/*= 2. Formulaires et champs =*/
+		/*========================================================================*/
+		section#content .inner section#blocks-container div.block div.block-content form#install fieldset {
+			padding-bottom: 7px;
+			height: 60px;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#install fieldset input {
+			width: 220px;
+			height: 20px;
+			border-radius: 3px;
+			border: none;
+			padding-left: 5px;
+			margin-top: 12px;
+			margin-right: 35px;
+			float: right;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#install fieldset .inner {
+			width: 334px;
+			float: left;
+			font-family: Signika;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#install fieldset .inner h1 {
+			font-weight: 300;
+			font-size: 20px;
+			color: #D3D3D3;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#install fieldset .inner h3 {
+			font-size: 14px;
+			font-weight: 100;
+			color: #929292;
+		}
+		section#content .inner section#blocks-container div.block div.block-content form#install input.btn {
+			position: absolute;
+			right: 79px;
+			bottom: 20px;
+		}

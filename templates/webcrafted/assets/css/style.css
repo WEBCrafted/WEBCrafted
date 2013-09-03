@@ -1,0 +1,883 @@
+/*
+ * style.css
+ * ----------------------------------
+ *
+ * Par WEBCrafted
+ * Copyright (C) 2013, WEBCrafted.
+ * ----------------------------------
+ *
+ * SOMMAIRE
+ * ----------------------------------
+ *
+ * I. Reset global
+ *
+ * II. Classes globales
+ *		A. Body
+ *		B. Notifications
+ *		C. Boutons
+ *		D. Classes-outils
+ *
+ * III. Header
+ *  	A. Nom du serveur et slogan
+ *		B. Navigation
+ *		C. Slider
+ *
+ * IV. Section principale
+ *  	A. Titres et textes
+ *
+ * V. Sidebar
+ *
+ * VI.  Boutique
+ *      A. Titres et textes
+ *      B. Porte monnaie
+ *      C. Articles
+ *      D. Barre de navigation
+ *
+ * VII. Footer
+ */
+
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-regular.ttf') format('truetype'),
+		 url('../fonts/opensans-regular.svg#OpenSansRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-bold.ttf') format('truetype'),
+		 url('../fonts/opensans-bold.svg#OpenSansBold') format('svg');
+	font-weight: bold;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Open Sans';
+	src: url('../fonts/opensans-light.ttf') format('truetype'),
+		 url('../fonts/opensans-light.svg#OpenSansLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Signika';
+	src: url('../fonts/signika-regular.ttf') format('truetype'),
+		 url('../fonts/signika-regular.svg#SignikaRegular') format('svg');
+	font-weight: 400;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Signika';
+	src: url('../fonts/signika-light.ttf') format('truetype'),
+		 url('../fonts/signika-light.svg#SignikaLight') format('svg');
+	font-weight: 300;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Bebas Neue';
+	src: url('../fonts/bebasneue-regular.ttf') format('truetype'),
+		 url('../fonts/bebasneue-regular.svg#BebasNeue') format('svg');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: "Minecraftia";
+	src: url("../fonts/minecraftia-regular.ttf") format("truetype"),
+		 url("../fonts/minecraftia-regular.svg#Minecraftia") format("svg");
+	font-weight: normal;
+	font-style: normal;
+}
+
+/*================================================================================*/
+/*= I. Reset global =*/
+/*================================================================================*/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins,
+kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot,
+thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark,
+audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+	text-decoration: none;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block; }
+body { line-height: 1; }
+ol, ul { list-style: none; }
+blockquote, q { quotes: none; }
+blockquote:before, blockquote:after, q:before, q:after { content: ""; content: none; }
+table {	border-collapse: collapse; border-spacing: 0; }
+input, select, textarea { outline: none; }
+
+/*================================================================================*/
+/*= II. Classes globales =*/
+/*================================================================================*/
+	/*============================================================================*/
+	/*= A. Body =*/
+	/*============================================================================*/
+	body {
+		margin: 0;
+		padding: 0;
+		background: url("../images/bg.png") repeat;
+	}
+	.inner {
+		width: 1024px;
+		margin: 0 auto;
+		padding: 0;
+	}
+
+	/*============================================================================*/
+	/*= B. Notifications =*/
+	/*============================================================================*/
+	.alert {
+		width: 100%;
+		margin-bottom: 20px;
+		-webkit-border-radius: 3px;
+		-moz-border-radius: 3px;
+		border-radius: 3px;
+	}
+	.alert p {
+		line-height: 50px;
+		padding-left: 10px;
+		font-family: "Open Sans";
+		font-weight: normal;
+		font-size: 16px;
+	}
+	.alert-error {
+		background-color: #E3C1C1;
+		box-shadow: inset 0 4px #F0D5D5, inset 0 0 10px #ECD1D1;
+		border: solid 1px #CBA5A5;
+	}
+	.alert-error p {
+		color: #856A6A;
+	}
+	.alert-success {
+		background-color: #D9E3C1;
+		box-shadow: inset 0 4px #E8F0D6, inset 0 0 10px #DDE6C7;
+		border: solid 1px #A3AA93;
+	}
+	.alert-success p {
+		color: #949C82;
+	}
+
+	/*============================================================================*/
+	/*= C. Boutons =*/
+	/*============================================================================*/
+	.btn {
+		width: auto;
+		height: auto;
+		padding: 10px 10px;
+		font-family: "Bebas Neue";
+		font-weight: bold;
+		font-size: 20px;
+		border: none;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		border-radius: 5px;
+		text-transform: uppercase;
+	}
+	a.btn {
+		height: auto;
+		display: inline-block;
+		text-align: center;
+		padding-top: 8px;
+		padding-bottom: 4px;
+	}
+	.btn-success {
+		background: #90C732;
+		background: -moz-linear-gradient(top, #90C732 0%, #A9EA38 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #90C732), color-stop(100%, #A9EA38));
+		background: -webkit-linear-gradient(top, #90C732 0%, #A9EA38 100%);
+		background: -o-linear-gradient(top, #90C732 0%, #A9EA38 100%);
+		background: -ms-linear-gradient(top, #90C732 0%, #A9EA38 100%);
+		background: linear-gradient(to bottom, #90C732 0%, #A9EA38 100%);
+		border-bottom: solid 4px #8AC427;
+		color: #3F5B10;
+	}
+	.btn-error {
+		background: #A73030;
+		background: -moz-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #A73030), color-stop(100%, #D65C5C));
+		background: -webkit-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: -o-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: -ms-linear-gradient(top, #A73030 0%, #D65C5C 100%);
+		background: linear-gradient(to bottom, #A73030 0%, #D65C5C 100%);
+		border-bottom: solid 4px #932E2E;
+		color: #731F1F;
+	}
+	.btn-primary {
+		background: #DEDEDE;
+		background: -moz-linear-gradient(top, #DEDEDE 0%, #EFEFEF 100%);
+		background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #DEDEDE), color-stop(100%, #EFEFEF));
+		background: -webkit-linear-gradient(top, #DEDEDE 0%, #EFEFEF 100%);
+		background: -o-linear-gradient(top, #DEDEDE 0%, #EFEFEF 100%);
+		background: -ms-linear-gradient(top, #DEDEDE 0%, #EFEFEF 100%);
+		background: linear-gradient(to bottom, #DEDEDE 0%, #EFEFEF 100%);
+		border-bottom: solid 4px #DDDDDD;
+		color: #636467;
+	}
+	.btn-table {
+		width: 800px;
+		height: 72px;
+		padding: 0;
+		display: block;
+		background: #EDF7DB;
+		border-bottom: solid 12px #CAD4B8;
+		font-size: 32px;
+		color: #889276;
+		line-height: 72px;
+		text-align: center;
+	}
+
+	/*============================================================================*/
+	/*= D. Classes-outils =*/
+	/*============================================================================*/
+	.right {
+		float: right;
+	}
+	.left {
+		float: left;
+	}
+	.clear {
+		clear: both;
+	}
+
+/*================================================================================*/
+/*= III. Header =*/
+/*================================================================================*/
+header#header {
+	width: 100%;
+	height: 101px;
+	background: #9CBEE2;
+	background: -moz-linear-gradient(top,  #9CBEE2 0%, #CBE3F6 100%);
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #9CBEE2), color-stop(100%, #CBE3F6));
+	background: -webkit-linear-gradient(top, #9CBEE2 0%, #CBE3F6 100%);
+	background: -o-linear-gradient(top, #9CBEE2 0%, #CBE3F6 100%);
+	background: -ms-linear-gradient(top, #9CBEE2 0%, #CBE3F6 100%);
+	background: linear-gradient(to bottom, #9CBEE2 0%, #CBE3F6 100%);
+}
+	/*============================================================================*/
+	/*= A. Nom du serveur et slogan =*/
+	/*============================================================================*/
+	header#header .inner div#description h1 {
+		padding-top: 15px;
+		font-family: "Bebas Neue";
+		font-weight: 600;
+		font-size: 38px;
+		text-shadow: 0 3px #ACACAC;
+		color: #FFF;
+	}
+	header#header .inner div#description h2 {
+		margin: 0;
+		font-family: "Bebas Neue";
+		font-weight: 600;
+		font-size: 22px;
+		text-shadow: 0 3px #ACACAC;
+		color: #FFF;
+	}
+	header#header .inner div#signup {
+		width: 142px;
+		height: 91px;
+		background: url("../images/sign.png") no-repeat;
+		margin-top: 10px;
+	}
+	header#header .inner div#signup ul {
+		height: 71px;
+		padding-top: 6px;
+	}
+	header#header .inner div#signup ul li {
+		padding-bottom: 10px;
+		text-align: center;
+		font-family: Minecraftia;
+		font-weight: normal;
+		font-size: 18px;
+	}
+	header#header .inner div#signup ul li a {
+		color: #FFF;
+	}
+
+	/*============================================================================*/
+	/*= B. Navigation =*/
+	/*============================================================================*/
+	nav#navigation {
+		width: 100%;
+		height: 147px;
+		background: url("../images/navbar-bg.png") repeat-x;
+	}
+	nav#navigation .inner {
+		height: 147px;
+	}
+	nav#navigation .inner ul {
+		padding: 30px 50px 0 0;
+	}
+	nav#navigation .inner ul li {
+		display: inline-block;
+		margin: 0 20px;
+		font-family: "Bebas Neue";
+		font-weight: normal;
+		font-size: 28px;
+		text-shadow: 0 2px 0 #929292, 0 0 4px #472F19;
+	}
+	nav#navigation .inner ul li a {
+		color: #FFF;
+	}
+
+	/*============================================================================*/
+	/*= C. Slider =*/
+	/*============================================================================*/
+
+/*================================================================================*/
+/*= IV. Section principale =*/
+/*================================================================================*/
+section#content .inner section#wrap {
+	width: 664px;
+	float: left;
+}
+	/*============================================================================*/
+	/*= A. Titres et textes =*/
+	/*============================================================================*/
+	section#content .inner h1 {
+		font-family: "Bebas Neue";
+		font-weight: normal;
+		font-size: 43px;
+		color: #414141;
+		margin-bottom: 20px;
+		border-bottom: 1px solid #AAAAAA;
+	}
+
+	/*============================================================================*/
+	/*= B. Sidebar =*/
+	/*============================================================================*/
+	section#content .inner section#sidebar {
+		width: 340px;
+		float: right;
+	}
+
+	/*============================================================================*/
+	/*= C. Articles =*/
+	/*============================================================================*/
+	section#content .inner section#posts-container {
+		width: 664px;
+		float: left;
+	}
+	section#content .inner section#posts-container div.post {
+		width: 664px;
+		height: 190px;
+		margin-bottom: 20px;
+		background: url("../images/post-bg.png") no-repeat;
+		box-shadow: inset 0 0 6px #000;
+		-moz-border-radius: 5px;
+		-webkit-border-radius: 5px;
+		-o-border-radius: 5px;
+		border-radius: 5px;
+	}
+	section#content .inner section#posts-container div.post img {
+		width: 190px;
+		height: 190px;
+		float: left;
+	}
+	section#content .inner section#posts-container div.post div.post-content {
+		position: relative;
+		float: left;
+		width: 474px;
+		height: 190px;
+	}
+	section#content .inner section#posts-container div.post div.post-content header h1 {
+		margin-bottom: 6px;
+		padding: 8px 0 0 12px;
+		font-family: "Bebas Neue";
+		font-weight: 600;
+		font-size: 33px;
+		border: none;
+	}
+	section#content .inner section#posts-container div.post div.post-content header h1 a {
+		color: #FFF;
+	}
+	section#content .inner section#posts-container div.post div.post-content p {
+		padding: 0 15px 0 12px;
+		line-height: 17px;
+		text-align: justify;
+		font-family: "Open Sans";
+		font-weight: normal;
+		font-size: 14px;
+		color: #C6C6C6;
+		overflow: hidden;
+	}
+	section#content .inner section#posts-container div.post div.post-content a.more {
+		position: absolute;
+		right: 25px;
+		bottom: 20px;
+		font-family: "Open Sans";
+		font-weight: normal;
+		font-size: 16px;
+		color: #FFF;
+	}
+	section#content .inner section#posts-container div.post div.post-content a.more span.gray {
+		color: #C6C6C6;
+	}
+
+section#content .inner section#page p {
+	padding-right: 15px;
+	font-family: "Open Sans";
+	font-weight: normal;
+	font-size: 14px;
+	text-align: justify;
+	color: #3A2F2F;
+}
+section#content .inner div#post {
+	width: 664px;
+	margin: 20px 0;
+	background: url("../images/box-bg.png");
+	box-shadow: inset 0 0 6px #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+section#content .inner div#post header img {
+	width: 664px;
+	height: 211px;
+}
+section#content .inner div#post div#post-content p {
+	padding: 10px 15px;
+	font-family: "Open Sans";
+	font-weight: normal;
+	font-size: 14px;
+	text-align: justify;
+	color: #FFF;
+}
+section#content .inner div#post div#post-content a {
+	color: #C6C6C6;
+}
+section#content .inner div#post div#post-content img {
+	max-width: 100%;
+}
+section#content .inner div#post div#post-content p#author {
+	float: right;
+}
+
+section#content .inner section#comments-container form {
+	width: 664px;
+	margin-top: 10px;
+	text-align: right;
+}
+section#content .inner section#comments-container textarea {
+	width: 664px;
+	padding-left: 8px;
+	font-family: Helvetica;
+	color: #8F8B8B;
+	border: none;
+	border-left: solid 5px #8C8375;
+	background: none;
+}
+section#content .inner section#comments-container {
+	width: 664px;
+	float: left;
+}
+section#content .inner section#comments-container .comment {
+	width: 664px;
+	height: auto;
+	margin-top: 20px;
+	background: url("../images/comment-bg.png");
+	box-shadow: inset 0 0 9px #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+section#content .inner section#comments-container .comment .comment-content .right {
+	width: 579px;
+}
+section#content .inner section#comments-container .comment .comment-content h2 {
+	padding: 5px 0 0 15px;
+	font-family: Minecraftia;
+	font-weight: normal;
+	font-size: 16px;
+	color: #FFF;
+}
+section#content .inner section#comments-container .comment .comment-content img {
+	width: 70px;
+	height: 70px;
+	padding: 10px 0 10px 10px;
+}
+section#content .inner section#comments-container .comment .comment-content p {
+	padding: 5px 0 0 15px;
+	font-family: "Open Sans";
+	font-weight: normal;
+	font-size: 14px;
+	color: #FFF;
+}
+
+section#content .inner section#slider {
+	width: 970px;
+	height: 367px;
+	margin: 20px auto;
+}
+
+/*================================================================================*/
+/*= V. Sidebar =*/
+/*================================================================================*/
+section#content .inner section#sidebar section#widgets-container div.widget {
+	margin-bottom: 20px;
+	background: url("../images/box-bg.png");
+	box-shadow: inset 0 0 6px #000;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	-o-border-radius: 5px;
+	border-radius: 5px;
+}
+section#content .inner section#sidebar section#widgets-container div.widget header h1 {
+	margin: 0;
+	padding: 10px 0 0 15px;
+	border: none;
+	color: #FFF;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content {
+	padding-bottom: 20px;
+	color: #FFF;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content p {
+	font-family: "Open Sans";
+	font-weight: normal;
+	font-size: 14px;
+	padding: 4px 8px 5px 20px;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content img {
+	padding: 11px 11px;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content span.green {
+	color: #9ECD43;
+	text-shadow: 0 3px 0 #4C6717;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content span.red {
+	color: #D84343;
+	text-shadow: 0 3px 0 #590200;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content span.gray {
+	color: #ACACAC;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content h2 {
+	padding-top: 20px;
+	padding-bottom: 4px;
+	font-family: Minecraftia;
+	font-size: 38px;
+	font-weight: normal;
+	text-align: center;
+}
+section#content .inner section#sidebar section#widgets-container div.widget div.widget-content h3 {
+	padding-top: 12px;
+	font-family: Minecraftia;
+	font-size: 22px;
+	font-weight: normal;
+	text-align: center;
+}
+
+/*================================================================================*/
+/*= VI. Boutique =*/
+/*================================================================================*/
+	/*============================================================================*/
+	/*= A. Titres et textes =*/
+	/*============================================================================*/
+	section#content .inner section#shop h2 {
+		margin-top: 30px;
+		margin-bottom: 15px;
+		font-family: "Open Sans";
+		font-weight: bold;
+		font-size: 28px;
+		color: #918576;
+	}
+	section#content .inner section#shop div#wallet h3 {
+		margin-top: 8px;
+		font-family: "Open Sans";
+		font-weight: bold;
+		font-size: 20px;
+		color: #918576;
+	}
+
+	/*============================================================================*/
+	/*= B. Porte monnaie =*/
+	/*============================================================================*/
+	section#content .inner section#shop div#wallet {
+		width: 958px;
+		height: 125px;
+		margin-top: 20px;
+		background: url("../images/shop_wallet.jpg") no-repeat;
+	}
+	section#content .inner section#shop div#wallet .inner {
+		width: 822px;
+		float: left;
+	}
+	section#content .inner section#shop div#wallet #player_info {
+		width: 391px;
+		float: left;
+	}
+	section#content .inner section#shop div#wallet #player_info img {
+		float: left;
+		margin: 24px 24px;
+	}
+	section#content .inner section#shop div#wallet #player_info div#emerald_big {
+		width: 191px;
+		height: 46px;
+		position: relative;
+		margin-top: 55px;
+		margin-left: 110px;
+		background: url("../images/emerald_big.png") no-repeat;
+	}
+	section#content .inner section#shop div#wallet #player_info div#emerald_big h3 {
+		position: absolute;
+		right: 155px;
+		bottom: 0;
+		font-family: Minecraftia;
+		font-weight: normal;
+		font-size: 20px;
+		text-shadow: 0 0 3px black;
+		color: #FFF;
+	}
+	section#content .inner section#shop div#wallet #player_info div#emerald_big h4 {
+		position: absolute;
+		top: 13px;
+		left: 40px;
+		font-family: "Open Sans";
+		font-weight: normal;
+		font-size: 20px;
+		color: #918576;
+	}
+	section#content .inner section#shop div#wallet #player_info div#emerald_big a {
+		position: absolute;
+		top: 30px;
+		right: 0;
+		font-family: "Open Sans";
+		font-weight: 300;
+		font-size: 14px;
+		color: #B09F8D;
+	}
+	section#content .inner section#shop div#wallet #player_info h2 {
+		float: left;
+		margin-top: 21px;
+		margin-left: -14px;
+		font-family: Minecraftia;
+		font-weight: normal;
+		font-size: 24px;
+		text-shadow: 1px -1px 0px #F7E8DA;
+		color: #867D71;
+	}
+	section#content .inner section#shop div#wallet #wallet_pay {
+		margin-top: -1px;
+		float: right;
+	}
+	section#content .inner section#shop div#wallet a#wallet_pay {
+		display: block;
+		width: 136px;
+		height: 126px;
+		background: url("../images/shop_pay.jpg");
+	}
+	section#content .inner section#shop div#wallet a#wallet_pay.active {
+		cursor: pointer;
+	}
+	section#content .inner section#shop div#wallet a#wallet_pay.active:hover {
+		background: url("../images/shop_pay_hover.jpg");
+	}
+	section#content .inner section#shop div#wallet a#wallet_pay.disabled {
+		cursor: default;
+	}
+	section#content .inner section#shop div#wallet h2 {
+		margin-top: 8px;
+	}
+	section#content .inner section#shop div#wallet #wallet_summary {
+		height: 125px;
+		float: left;
+		margin-left: 10px;
+	}
+	section#content .inner section#shop div#wallet #wallet_summary ul {
+		width: 255px;
+		margin-top: 10px;
+	}
+	section#content .inner section#shop div#wallet #wallet_summary ul li {
+		height: 17px;
+	}
+	section#content .inner section#shop div#wallet #wallet_summary ul li p {
+		float: left;
+		margin-left: 5px;
+		font-family: "Open Sans";
+		font-weight: normal;
+		font-size: 16px;
+		color: #918576;
+	}
+	section#content .inner section#shop div#wallet #wallet_summary ul li img {
+		float: left;
+		margin-left: 2px;
+	}
+	section#content .inner section#shop div#wallet #wallet_summary ul li h5 {
+		float: left;
+		font-family: Signika;
+		font-weight: normal;
+		font-size: 16px;
+		color: #918576;
+	}
+	section#content .inner section#shop div#wallet #wallet_total {
+		float: left;
+		margin-left: 20px;
+	}
+	section#content .inner section#shop div#wallet #wallet_total h4 {
+		font-family: Signika;
+		font-weight: normal;
+		font-size: 20px;
+		color: #918576;
+	}
+
+	/*============================================================================*/
+	/*= C. Articles =*/
+	/*============================================================================*/
+	section#content .inner section#shop div#blocks-container {
+		width: 700px;
+		float: left;
+	}
+	section#content .inner section#shop div#blocks-container .block {
+		width: 204px;
+		height: 263px;
+		margin: 0 25px 27px 0;
+		display: inline-block;
+		background: url("../images/shop/block.png");
+	}
+	section#content .inner section#shop div#blocks-container .block header img {
+		width: 200px;
+		height: 158px;
+		margin: 2px 0 0 2px;
+	}
+	section#content .inner section#shop div#blocks-container .block .block-content {
+		width: 204px;
+		height: 67px;
+		margin-top: -3px;
+	}
+	section#content .inner section#shop div#blocks-container .block .block-content h4 {
+		padding: 7px 0 0 8px;
+		font-family: "Open Sans";
+		font-weight: bold;
+		font-size: 18px;
+		color: #867D71;
+	}
+	section#content .inner section#shop div#blocks-container .block .block-content ul {
+	}
+	section#content .inner section#shop div#blocks-container .block .block-content ul li {
+		padding: 3px 0 0 8px;
+		font-family: Minecraftia;
+		font-weight: normal;
+		font-size: 16px;
+		color: #ACA396;
+	}
+	section#content .inner section#shop div#blocks-container .block .block-content ul li:nth-child(2) {
+		font-size: 14px;
+		color: #9C9488;
+	}
+	section#content .inner section#shop div#blocks-container .block footer {
+		width: 204px;
+		height: 36px;
+	}
+	section#content .inner section#shop div#blocks-container .block footer a {
+		width: 200px;
+		height: 34px;
+		margin-left: 2px;
+		display: block;
+		background: url("../images/shop/add.png") no-repeat;
+	}
+
+	/*============================================================================*/
+	/*= D. Barre de navigation =*/
+	/*============================================================================*/
+	section#content .inner section#shop nav#sortby {
+		width: 300px;
+		float: right;
+	}
+	section#content .inner section#shop nav#sortby ul li {
+		padding-bottom: 3px;
+		font-family: Minecraftia;
+		font-weight: normal;
+		font-size: 24px;
+	}
+	section#content .inner section#shop nav#sortby ul li a {
+		color: #BEB5AA;
+	}
+	section#content .inner section#shop nav#sortby h2 {
+	}
+
+/*================================================================================*/
+/*= VII. Footer =*/
+/*================================================================================*/
+footer#footer {
+	width: 100%;
+	height: 382px;
+	margin-top: 55px;
+	background: url("../images/footer-bg.png");
+}
+footer#footer .inner header {
+	height: 76px;
+}
+footer#footer .inner section#comments-container {
+	width: 664px;
+	float: left;
+}
+footer#footer .inner section#comments-container .comment {
+	width: 612px;
+	height: 106px;
+	margin-top: 35px;
+}
+footer#footer .inner section#comments-container .comment .comment-content {
+	height: 71px;
+	overflow: hidden;
+}
+footer#footer .inner section#comments-container .comment .comment-content .right {
+	width: 542px;
+}
+footer#footer .inner section#comments-container .comment .comment-content h2 {
+	padding-left: 15px;
+	font-family: Minecraftia;
+	font-weight: normal;
+	font-size: 16px;
+	color: #FFF;
+}
+footer#footer .inner section#comments-container .comment .comment-content img {
+	width: 70px;
+	height: 70px;
+}
+footer#footer .inner section#comments-container .comment .comment-content p {
+	padding-top: 5px;
+	padding-left: 15px;
+	font-family: "Open Sans";
+	font-weight: normal;
+	font-size: 16px;
+	color: #4F4F4F;
+}
+footer#footer .inner section#comments-container .comment footer {
+	margin-top: 10px;
+	border-top: 1px solid #676767;
+}
+footer#footer .inner section#comments-container .comment footer h2 {
+	margin-top: 5px;
+	font-family: Minecraftia;
+	font-weight: normal;
+	font-size: 16px;
+	color: #6C6C6C;
+}
+footer#footer .inner section#comments-container .comment footer h2 a {
+	color: #6C6C6C;
+}
+footer#footer .inner section#partners {
+	width: 340px;
+	float: right;
+}
+footer#footer .inner section#partners ul {
+	margin-top: 35px;
+}
+footer#footer .inner h1 {
+	line-height: 76px;
+	border: none;
+	font-family: Minecraftia;
+	font-size: 24px;
+	text-transform: uppercase;
+	text-shadow: 0 0 6px #FFF, 0 3px 0 #C7C7C7;
+	color: #FFF;
+}
+footer#footer .inner h1.center {
+	text-align: center;
+}
