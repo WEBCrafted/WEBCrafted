@@ -70,8 +70,10 @@ else {
 				$_users->setField($_SESSION["username"], "money", $_SESSION["money"] - $totalprice);
 				$content = array();
 
-				for($i = 0; $i < count($_SESSION["basket"]) + 1; $i++)
-					$content[$i] = array("item_id" => array_shift($_SESSION["basket"])["id"]);
+				for($i = 0; $i < count($_SESSION["basket"]) + 1; $i++) {
+					$lastItem = array_shift($_SESSION["basket"]);
+					$content[$i] = array("item_id" => $lastItem["id"]);
+				}
 
 				$_history = loadBundle("fr.solicium.history");
 				$_history->checkout($content, "items");
