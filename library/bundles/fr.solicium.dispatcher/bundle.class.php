@@ -29,8 +29,6 @@ class Dispatcher extends Core {
 				array_shift($params);
 				$view = "home";
 			}
-
-			// Pour gérer les cas ou un / est à la fin de l'URL
 		}
 		else
 			$theme = Configure::read("theme");
@@ -38,9 +36,9 @@ class Dispatcher extends Core {
 		define("THEME", $theme);
 		define("TWEB", WEBROOT . "templates/$theme/");
 		define("TLINK", in_array($theme, $_core["prefixes"]) ? WEBROOT . "$theme/" : WEBROOT);
-		define("THUMBS", "http://{$_SERVER["SERVER_NAME"]}" . ($_SERVER["SERVER_PORT"] != 80 ? ":{$_SERVER["SERVER_PORT"]}" : "") ."{$_SERVER["SCRIPT_NAME"]}?page=assets/thumbs/");
+		define("THUMBS", "http://{$_SERVER["SERVER_NAME"]}" . ($_SERVER["SERVER_PORT"] != 80 ? ":{$_SERVER["SERVER_PORT"]}" : "") . "{$_SERVER["SCRIPT_NAME"]}?page=assets/thumbs/");
 		define("TROOT", ROOT . "templates/$theme/");
-		define("ASSETS", WEBROOT . "templates/$theme/assets/");
+		define("ASSETS", str_replace("index.php?page=", "", WEBROOT . "templates/$theme/assets/"));
 
 		// Vérification du jeton de sécurité
 		if(!$_users->verifyToken()) {
@@ -51,15 +49,19 @@ class Dispatcher extends Core {
 		if(isset($params[0]) AND $params[0] == "actions") {
 			require(ROOT . "library/actions/loader.php");
 		}
-		elseif(isset($params[0]) AND $params[0] == "templates") {
-			die(file_get_contents(ROOT . implode("/", $params)));
-		}
-		elseif(isset($params[0]) AND $params[0] == "assets" AND isset($params[1]) AND $params[1] == "thumbs" AND isset($params[2])) {
-			$_cropper = loadBundle("fr.solicium.cropper");
-			preg_match("/(.*)_([0-9]+)x([0-9]+).(jpeg|png|gif)/", $params[3], $thumb);
-			$_cropper->createThumbnail(ROOT . "templates/commons/uploads/{$params[2]}/", $thumb[1], $thumb[2], $thumb[3], $thumb[4]);
+		elseif(isset($params[0]) AND ($params[0] == "assets" || $params[0] == "templates")) {
+			if($params[0] == "assets" AND isset($params[1]) AND $params[1] == "thumbs" AND isset($params[2])) {
+				$_cropper = loadBundle("fr.solicium.cropper");
+				preg_match("/(.*)_([0-9]+)x([0-9]+).(jpeg|png|gif)/", $params[3], $thumb);
+				$_cropper->createThumbnail(ROOT . "templates/commons/uploads/{$params[2]}/", $thumb[1], $thumb[2], $thumb[3], $thumb[4]);
+			}
+			else if(file_exists(TROOT . implode("/", $params)))
+				die(file_get_contents(TROOT . implode("/", $params)));
 		}
 		else {
+			if(!file_exists(TROOT . "views/$view/view.php"))
+				$view = "404";
+
 			if(file_exists(ROOT . "templates/loader.php"))
 				require(ROOT . "templates/loader.php");
 
