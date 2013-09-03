@@ -183,6 +183,7 @@ CREATE  TABLE IF NOT EXISTS `{database.name}`.`wc_shop_history` (
   `id` INT(11) NOT NULL ,
   `content` TEXT CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL ,
   `user_id` VARCHAR(255) CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL ,
+  `type` ENUM('Money','Items') CHARACTER SET 'utf8' COLLATE 'utf8_unicode_ci' NOT NULL ,
   `date` DATETIME NOT NULL ,
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `id` (`id` ASC) )

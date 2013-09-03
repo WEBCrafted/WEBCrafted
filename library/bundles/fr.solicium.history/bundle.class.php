@@ -10,26 +10,37 @@ class History extends Core {
 	/**
 	 * Le constructeur du bundle History
 	 */
-	public function __construct() {
+	public function __construct($table = "shop_history") {
 		parent::__construct();
+
+		if(DataBase::tableExists(PREFIX . $table))
+			$this->_table = PREFIX . $table;
+		else
+			$this->errorTableDontExist(PREFIX . $table);
 	}
 
 	/**
 	 * Enregistre un historique de payement
-	 * @param $tableHistory Le nom de la table de l'historique de paiement
-	 * @param $tableItems Le nom de la table contenant les articles
+	 * @param $content Le contenu de l'achat
+	 * @param $type Le type de l'achat
 	 */
-	public function checkout($tableHistory = "shop_history", $tableItems = "shop_items") {
-		if(!DataBase::tableExists(PREFIX . $tableHistory))
-			$this->errorTableDontExist(PREFIX . $tableItems);
+	public function checkout($content, $type) {
+		$id = DataBase::read($this->_table, array("fields" => array("id"), "limit" => 1, "order" => array("method" => "DESC")));
 
-		if(!DataBase::tableExists(PREFIX . $tableItems))
-			$this->errorTableDontExist(PREFIX . $tableItems);
+		if(empty($id))
+			$id = 1;
+		else
+			$id = current($id) + 1;
 
-		DataBase::insert($tableHistory, array(
+		if(is_array($content))
+			$content = json_encode($content);
+
+		DataBase::insert($this->_table, array(
 			"fields" => array(
-				"content" => json_encode($_SESSION["basket"]),
-				"user_id" => $_SESSION["username"]["id"],
+				"id" => $id,
+				"content" => $content,
+				"user_id" => $_SESSION["id"],
+				"type" => $type,
 				"date" => "NOW()",
 			),
 		));
@@ -37,27 +48,24 @@ class History extends Core {
 
 	/**
 	 * Récupère les derniers paiements
-	 * @param string $table Le nom de la table
 	 * @param int $limit Le nombre de paiements à récupèrer
 	 * @param int $page La page actuelle
 	 * @return mixed[] Un tableau contenant l'historique
 	 */
-	public function getHistory($table = "shop_history", $limit = 5, $page = 1) {
-		if(!DataBase::tableExists(PREFIX . $table))
-			$this->errorTableDontExist(PREFIX . $table);
-
-		$result = DataBase::read($table, array(
-			"order" => "time DESC",
+	public function getHistory($limit = 10, $page = 1) {
+		$result = DataBase::read($this->_table, array(
+			"order" => array("column" => "date"),
 			"limit" => $limit,
-			"offset" => $limit * ($page - 1)
+			"offset" => $limit * ($page - 1),
 		));
 
 		if (isset($result["id"]))
 			$result = array($result);
 
-		for($i = 0; $i < count($result); $i++)
-			$result = array_merge($result, unserialize($result["content"]));
+		foreach($result as $k => $v)
+			if(preg_match('/^[\[\{]\"/', $v["content"]))
+				$result[$k]["content"] = json_decode(TextUtils::fixJson($v["content"]), true);
 
-		return current($result);
+		return $result;
 	}
 }

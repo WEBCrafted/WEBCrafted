@@ -4,17 +4,21 @@ if(!isset($_POST["code1"])) {
 }
 else {
 	$success = $_starpass->checkCodes($_POST["code1"]);
-	
+
 	if(!$success || ($_POST["code1"] == Configure::read("shop_starpass_code") && !Configure::read("shop_starpass_usecode"))) {
 		setFlash("Le code que vous avez entré n'est pas valide", "error");
 	}
 	else {
 		$success = $_users->addMoney(Configure::read("shop_starpass_credit"));
-		
+
 		if(!$success)
 			setFlash("Impossible d'ajouter vos émeraudes, contactez un administrateur", "error");
-		else
+		else {
+			$_history = loadBundle("fr.solicium.history");
+			$_history->checkout(Configure::read("shop_starpass_credit"), "money");
+
 			setFlash("Vos émeraudes ont été ajoutées", "success");
+		}
 	}
 }
 

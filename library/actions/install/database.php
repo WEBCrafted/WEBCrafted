@@ -94,6 +94,9 @@ else {
 					));
 				}
 
+				if(version_compare($options["version"][0], "0-7-7", "<"))
+					$db->exec(str_replace("{database.name}", $_POST["name"], file_get_contents(ROOT . "config/updates/0-7-7.sql")));
+
 				$db->exec(str_replace("{database.name}", $_POST["name"], file_get_contents(ROOT . "config/updates/0-7-6.sql")));
 			}
 

@@ -52,7 +52,7 @@ else {
 							$_minecraft->addPermission($_SESSION["username"], $args, $item["duration"]);
 						}
 						elseif($method == "givePlayerItemWithData") {
-							$args = json_decode($args, true);
+							$args = json_decode(TextUtils::fixJson($args), true);
 
 							foreach($args as $v)
 								$_minecraft->givePlayerItem($_SESSION["username"], $v["id"], $v["quantity"]);
@@ -65,9 +65,17 @@ else {
 						}
 					}
 				}
+
 				$totalprice = $_basket->getTotalPrice();
 				$_users->setField($_SESSION["username"], "money", $_SESSION["money"] - $totalprice);
-				$_basket->clearItems();
+				$content = array();
+
+				for($i = 0; $i < count($_SESSION["basket"]) + 1; $i++)
+					$content[$i] = array("item_id" => array_shift($_SESSION["basket"])["id"]);
+
+				$_history = loadBundle("fr.solicium.history");
+				$_history->checkout($content, "items");
+
 				setFlash("Vous avez reçu vos lots en échange de $totalprice émeraudes", "success");
 			}
 		}
