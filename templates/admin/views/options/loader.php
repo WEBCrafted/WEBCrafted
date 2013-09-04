@@ -6,9 +6,9 @@ if(!$_users->hasPermission("webcrafted.admin.*") AND !$_users->hasPermission("we
 
 $themes = array();
 if($folder = opendir(ROOT . "templates")) {
-	$base = array(".", "..", ".DS_Store", "loader.php", "admin", "commons", "install");
+	$blacklist = array(".", "..", ".DS_Store", "loader.php", "admin", "commons", "install");
 	while(($file = readdir($folder)) !== false) {
-		if(!in_array($file, $base)) {
+		if(!in_array($file, $blacklist)) {
 			$themes[$file] = ucfirst($file);
 		}
 	}

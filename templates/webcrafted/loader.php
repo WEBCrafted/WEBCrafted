@@ -52,9 +52,6 @@ set(array(
 	"options" => array(
 		"jsonapi_use" => Configure::read("jsonapi_use"),
 		"shop_use" => Configure::read("shop_use"),
-		"facebook" => Configure::read("facebook_page"),
-		"youtube" => Configure::read("youtube_channel"),
-		"twitter" => str_replace("@", "", Configure::read("twitter_account")),
 	),
 	"lastcomments" => $lastcomments,
 	"serverdata" => $serverdata,

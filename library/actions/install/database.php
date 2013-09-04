@@ -88,7 +88,7 @@ else {
 					$request->execute(array(
 						"id" => $id,
 						"title" => "Socialhub",
-						"content" => '<a href="{options.facebook}"><img src="' . WEBROOT . 'templates/' . $options["theme"][0] . '/assets/images/facebook.png" alt="facebook" /></a><a href="{options.youtube}"><img src="' . WEBROOT . 'templates/' . $options["theme"][0] . '/assets/images/youtube.png" alt="youtube" /></a><a href="https://twitter.com/{options.twitter}"><img src="' . WEBROOT . 'templates/' . $options["theme"][0] . '/assets/images/twitter.png" alt="twitter" /></a>',
+						"content" => '<a href="https://www.facebook.com/"><img src="' . WEBROOT . 'templates/' . $options["theme"][0] . '/assets/images/facebook.png" alt="facebook" /></a><a href="http://youtube.com/"><img src="' . WEBROOT . 'templates/' . $options["theme"][0] . '/assets/images/youtube.png" alt="youtube" /></a><a href="https://twitter.com/"><img src="' . WEBROOT . 'templates/' . $options["theme"][0] . '/assets/images/twitter.png" alt="twitter" /></a>',
 						"creator_id" => $uid,
 						"last_editor_id" => $uid,
 					));

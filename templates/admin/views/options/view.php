@@ -44,15 +44,6 @@
 						</div>
 					</div>
 				</fieldset>
-				<fieldset>
-					<h2 for="socialhub">SocialHub</h2>
-					<label for="facebook_page">Page Facebook</label>
-					<input id="facebook_page" name="facebook_page" type="url" value="{options.facebook_page}" placeholder="https://" /><br /><br />
-					<label for="youtube_channel">Chaîne YouTube</label>
-					<input id="youtube_channel" name="youtube_channel" type="text" value="{options.youtube_channel}" placeholder="https://" /><br /><br />
-					<label for="twitter_account">Compte Twitter</label>
-					<input id="twitter_account" name="twitter_account" type="text" value="{options.twitter_account}" placeholder="@" />
-				</fieldset>
 				<input class="btn btn-success" type="submit" value="Sauvegarder" />
 				<button class="btn btn-primary" type="button" onclick="javascript:history.back()">Retour</button>
 			</form>
